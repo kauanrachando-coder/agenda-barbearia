@@ -1,23 +1,39 @@
-def mostar_menu():
+clientes = []
+
+
+def mostrar_menu():
     print('='*35)
     print('  AGENDA DA BARBEARIA')
     print('=' *35)
     print('1 - Cadastrar cliente')
     print('2 - Agendar horário')
-    print('3 - Listar agendamentos')
+    print('3 - Listar Clientes')
     print('4 - Sair')
 
 
-def cadastar_cliente():
-    print('Cadastro de cliente')
+def cadastrar_cliente():
+    nome = input('Qual é seu nome:')
+
+    if nome in clientes:
+
+        print('Cliente já cadastrado!')
+
+    else:
+        clientes.append(nome)
+
+        print('Cliente cadastrado com sucesso!')
 
 
 def agendar_horario():
     print('Agendar horário')
     
 
-def listar_agendamentos():
-    print('Listar de agendamentos')
+def listar_clientes():
+    print ('\nCLIENTES CADASTRADOS')
+    print('='*35)
+
+    for cliente in clientes:
+        print(cliente)
 
 
 def sobre_sistema():
@@ -26,24 +42,25 @@ def sobre_sistema():
 
 while True:
 
-    mostar_menu()
+    mostrar_menu()
 
 
     opçao = input('Escolha uma opção:')
 
 
     if opçao == '1':
-        print('Cadastro de cliente')
+        cadastrar_cliente()
 
     elif opçao == '2':
-        print('Agendar horário')
+        agendar_horario()
 
     elif opçao == '3':
-        print('Listar agendamentos')
+        listar_clientes()
 
     elif opçao == '4':
-        print ('Sair')
+        print ('Programa encerrado.')
         break
 
     else:
+
         print('opção invalida')
